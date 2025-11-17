@@ -1,6 +1,6 @@
 //your variable declarations here
 Spaceship bob = new Spaceship();
-Star [] friends = new Star[50];
+Star [] friends = new Star[150];
 public void setup() 
 {
   size(400, 400);
@@ -23,13 +23,12 @@ public void keyPressed()
     bob.hyperspace();
   }
   if(keyCode==UP){
-    bob.accelerate();
+    bob.accelerate(.5);
   }
   if(keyCode==LEFT){
-    bob.turnLeft();
+    bob.turn(-5);
   }
   if(keyCode==RIGHT){
-    bob.turnRight();
+    bob.turn(5);
   }
 }
-
