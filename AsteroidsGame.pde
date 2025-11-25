@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 //your variable declarations here
 Spaceship bob = new Spaceship();
 Star [] friends = new Star[150];
