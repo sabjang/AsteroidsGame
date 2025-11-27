@@ -2,7 +2,6 @@
 Spaceship bob = new Spaceship();
 Star [] friends = new Star[150];
 ArrayList <Asteroid> susie = new ArrayList<Asteroid>();
-//Asteroid [] susie = new Asteroid[5];
 public void setup() 
 {
   size(400, 400);
@@ -22,6 +21,10 @@ public void draw()
   for(int i = 0; i<susie.size(); i++){
     susie.get(i).show();
     susie.get(i).move();
+    float d = dist(bob.getX(), bob.getY(), susie.get(i).getX(), susie.get(i).getY());
+    if(d<=20){
+      susie.remove(i);
+    }
   }
   bob.show();
   bob.move();
@@ -41,4 +44,3 @@ public void keyPressed()
     bob.turn(5);
   }
 }
-
