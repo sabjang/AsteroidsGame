@@ -2,6 +2,7 @@
 Spaceship bob = new Spaceship();
 Star [] friends = new Star[150];
 ArrayList <Asteroid> susie = new ArrayList<Asteroid>();
+ArrayList <Bullet> pewpew = new ArrayList<Bullet>(); //currently empty
 public void setup() 
 {
   size(400, 400);
@@ -26,6 +27,19 @@ public void draw()
       susie.remove(i);
     }
   }
+  for(int i = 0; i<pewpew.size(); i++){
+    pewpew.get(i).show();
+    pewpew.get(i).move();
+    for(int j = 0; j<susie.size(); j++){
+      float d = dist(pewpew.get(i).getMyX(), pewpew.get(i).getMyY(), susie.get(j).getX(), susie.get(j).getY());
+      if(d<=15){
+        pewpew.remove(i);
+        susie.remove(j);
+        break;
+      }
+    }
+  }
+  
   bob.show();
   bob.move();
 }
@@ -42,5 +56,8 @@ public void keyPressed()
   }
   if(keyCode==RIGHT){
     bob.turn(5);
+  }
+  if(keyCode==' '){
+    pewpew.add(new Bullet(bob));
   }
 }
